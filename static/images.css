@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f6f9;
+}
+
+/* PAGE WRAPPER */
+.images-page {
+    padding: 40px;
+}
+
+/* HEADER */
+.images-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.images-header h2 {
+    margin: 0;
+}
+
+/* UPLOAD BUTTON */
+.upload-btn {
+    background: #6a5af9;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.upload-btn:hover {
+    background: #5747e6;
+}
+
+/* GALLERY GRID */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;   /* allows next row if space ends */
+    gap: 10px;
+}
+
+/* IMAGE CARD */
+.image-card {
+    height: 150px;
+    background: #e9edf5;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}

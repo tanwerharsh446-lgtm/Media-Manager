@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Videos</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='media.css') }}">
+</head>
+<body>
+
+<div class="media-page">
+
+    <div class="media-header">
+        <h2>Your Videos</h2>
+
+        <form enctype="multipart/form-data" action="/get_videos" method="post">
+            <input type="file" id="videoInput" name="videos">
+            <label for="videoInput" class="upload-btn">Upload Videos</label>
+            <input type="submit">
+        </form>
+    </div>
+
+    <div class="media-grid">
+        {%for item in items%}
+            <video width="300" controls style="display:block; margin-bottom:10px;">
+            <source src="{{ url_for('static', filename='user_uploads/' + id + '/videos/' + item) }}">
+            </video>
+            {%endfor%}
+        
+    </div>
+
+</div>
+
+</body>
+</html>

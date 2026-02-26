@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Manager</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='d.css') }}">
+</head>
+<body>
+
+<!-- TOP NAVBAR -->
+<div class="navbar">
+    <h1>Media Manager</h1>
+
+    <div class="user-info">
+        {{ user }}
+    </div>
+</div>
+
+<!-- MAIN DASHBOARD -->
+<div class="dashboard">
+
+    <!-- LEFT PANEL (NOTES) -->
+    <div class="notes-panel">
+
+        <h2>What are your thoughts today?</h2>
+
+        <form method="POST" action="/add_note" class="note-form">
+            <input type="text" name="note" placeholder="Write a note...">
+            <button>Add</button>
+        </form>
+
+        <div class="notes-box">
+           
+            {%for id,note in dict.items()%} 
+            <div class="note-card">
+            <span class="note-text">{{note}}</span>
+            <a class="delete-icon" href="/delete_note/{{id}}">✖</a>
+        </div>
+
+            {%endfor%}
+           
+        </div>
+
+    </div>
+
+    <!-- RIGHT PANEL (MEDIA) -->
+    <div class="media-panel">
+
+        <div class="card"><a href="/images">📷 Images</a></div>
+        <div class="card"><a href="/videos">🎥 Videos</a></div>
+        <div class="card"><a href="/documents">📄 Documents</a></div>
+
+    </div>
+
+</div>
+
+<!-- FOOTER ACTION BAR -->
+<div class="footer">
+    <span>Cloud Dashboard</span>
+
+    <div>
+        
+        <a href="/logout"><button class="logout">Logout</button></a>
+       
+        <a href="/delete"><button class="delete">Delete Account</button></a>
+    </div>
+</div>
+
+</body>
+</html>

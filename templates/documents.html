@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documents</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='media.css') }}">
+</head>
+<body>
+
+<div class="media-page">
+
+    <div class="media-header">
+        <h2>Your Documents</h2>
+
+        <form enctype="multipart/form-data" action="/get_documents" method="post">
+            <input type="file" id="fileInput" name="docs">
+            <label for="fileInput" class="upload-btn">Upload Files</label>
+            <input type="submit">
+        </form>
+    </div>
+
+    <div class="media-grid">
+        {%for item in items%}
+            <a href="{{ url_for('static', filename='user_uploads/' + id + '/documents/' + item) }}" target="blank">{{item}}</a>
+            
+            {%endfor%}
+        <div class="media-card">📄</div>
+        <div class="media-card">📄</div>
+    </div>
+
+</div>
+
+</body>
+</html>
